@@ -1,0 +1,15 @@
+buildscript {
+  repositories {
+    jcenter()
+  }
+  dependencies {
+    classpath 'org.ajoberstar:gradle-git:1.4.2'
+  }
+}
+
+version = '0.0.1'
+
+apply plugin: 'java'
+apply plugin: 'maven'
+
+apply from: 'readme.gradle'
