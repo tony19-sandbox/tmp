@@ -19,7 +19,7 @@ version = "0.0.5-SNAPSHOT"
 
 release {
   tagTemplate = 'v_${version}' // must be single-quotes
-  preTagCommitMessage = '[gradle-release-plugin] pre tag '
-  tagCommitMessage = '[gradle-release-plugin] tag '
-  newVersionCommitMessage = '[gradle-release-plugin] bump to '
+  preTagCommitMessage = ':octocat: prepare'
+  tagCommitMessage = ':octocat: tag'
+  newVersionCommitMessage = ':octocat: bump to'
 }
