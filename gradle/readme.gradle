@@ -6,7 +6,7 @@ apply plugin: 'org.ajoberstar.grgit'
 task readme << {
 
   def updateReadme = {
-    def text = new File('readme.template').getText('UTF-8')
+    def text = new File('gradle/readme.template').getText('UTF-8')
     def template = new groovy.text.StreamingTemplateEngine().createTemplate(text)
 
     def binding = [
