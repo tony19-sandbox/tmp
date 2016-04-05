@@ -1,2 +1,2 @@
 Hello world
-version = unspecified
+version = 0.0.4
