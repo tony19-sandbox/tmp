@@ -6,10 +6,20 @@ buildscript {
     classpath 'org.ajoberstar:gradle-git:1.4.2'
   }
 }
-
-version = '0.0.2'
+plugins {
+  id 'net.researchgate.release' version '2.3.4'
+}
 
 apply plugin: 'java'
 apply plugin: 'maven'
 
 apply from: 'gradle/readme.gradle'
+
+version = "0.0.5-SNAPSHOT"
+
+release {
+  tagTemplate = 'v_${version}' // must be single-quotes
+  preTagCommitMessage = '[gradle-release-plugin] pre tag '
+  tagCommitMessage = '[gradle-release-plugin] tag '
+  newVersionCommitMessage = '[gradle-release-plugin] bump to '
+}

@@ -33,9 +33,9 @@ task readme << {
 
   if (updateReadme()) {
     commitReadme()
-    println 'committed new README'
+    println "committed new README for ${rootProject.version}"
   } else {
-    println 'no changes to README'
+    println "no changes to README for ${rootProject.version}"
   }
 }
 tasks.readme.description = 'Generates README.md based on project properties, and commits it.'
