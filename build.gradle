@@ -20,4 +20,5 @@ release {
   preTagCommitMessage = ':octocat: prepare'
   tagCommitMessage = ':octocat: tag'
   newVersionCommitMessage = ':octocat: bump to'
+  git.pushToRemote = project.hasProperty('push')
 }
