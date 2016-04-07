@@ -26,7 +26,7 @@ echo ''
             readme                              \
             release                             \
             uploadArchives                      \
-            uploadDocs                          \
             uberjar
+#            uploadDocs                          \
 
 hub release edit -d -m '' ${version} -a build/logback-android-${version}.jar
