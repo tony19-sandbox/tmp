@@ -1,0 +1,11 @@
+language: java
+
+after_success:
+  - >
+    curl -X POST
+      -H "Content-Type: application/json"
+      -H "Travis-API-Version: 3"
+      -H "Accept: application/json"
+      -H "Authorization: token $TRAVIS_TOKEN"
+      -d '{"request": {"branch": "master"}}'
+      'https://api.travis-ci.org/repo/tony19-sandbox%2Flogback-android-test-app/requests'
