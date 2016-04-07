@@ -29,4 +29,4 @@ echo ''
             uberjar
 #            uploadDocs                          \
 
-hub release edit -d -m '' ${version} -a build/logback-android-${version}.jar
+hub release edit -d -m '' v_${version} -a build/logback-android-${version}.jar
