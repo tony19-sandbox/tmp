@@ -33,8 +33,8 @@ allprojects  {
   apply plugin: 'maven'
   apply plugin: 'nebula.provided-base'
   apply plugin: 'nebula.optional-base'
-  apply from: 'gradle/nexus.gradle'
-  apply from: 'gradle/docs.gradle'
+  apply from: '../gradle/nexus.gradle'
+  apply from: '../gradle/docs.gradle'
 
   group = 'com.github.tony19'
   version = "${version}"
