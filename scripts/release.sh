@@ -32,6 +32,10 @@ echo ''
             uploadArchives                      \
             uberjar
 
+echo ''
+echo '/**********************/'
+echo ''
+
 # FIXME: In test repo, this can't checkout 'gh-pages' -- no error provided
 #./gradlew   uploadDocs
 echo TODO: upload javadocs to gh-pages with:
