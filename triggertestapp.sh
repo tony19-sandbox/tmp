@@ -10,8 +10,6 @@ curl -X POST  --header "Content-Type: application/json" -d '{
     "build_parameters": {
       "LOGBACK_ANDROID_VERSION": "'$logbackAndroidVersion'",
       "SLF4J_VERSION": "'$slf4jVersion'",
-      "CIRCLE_PROJECT_USERNAME": "'$CIRCLE_PROJECT_USERNAME'",
-      "CIRCLE_PROJECT_REPONAME": "'$CIRCLE_PROJECT_REPONAME'",
       "CIRCLE_BRANCH": "'$CIRCLE_BRANCH'",
       "CIRCLE_TAG": "'$CIRCLE_TAG'",
       "CIRCLE_SHA1": "'$CIRCLE_SHA1'",
@@ -19,7 +17,6 @@ curl -X POST  --header "Content-Type: application/json" -d '{
       "CIRCLE_COMPARE_URL": "'$CIRCLE_COMPARE_URL'",
       "CIRCLE_BUILD_URL": "'$CIRCLE_BUILD_URL'",
       "CIRCLE_BUILD_NUM": "'$CIRCLE_BUILD_NUM'",
-      "CIRCLE_PREVIOUS_BUILD_NUM": "'$CIRCLE_PREVIOUS_BUILD_NUM'",
       "CI_PULL_REQUESTS": "'$CI_PULL_REQUESTS'",
       "CI_PULL_REQUEST": "'$CI_PULL_REQUEST'",
       "CIRCLE_USERNAME": "'$CIRCLE_USERNAME'",
