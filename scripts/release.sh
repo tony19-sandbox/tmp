@@ -2,8 +2,10 @@
 
 . gradle.properties
 
-nextVersion=${version}
 version=${version%*-SNAPSHOT}
+baseVersion=${version%*-*}
+nextBuild=$((${version##*-} + 1))
+nextVersion="${baseVersion}-${nextBuild}-SNAPSHOT"
 
 echo "Starting release for logback-android ${version}..."
 
@@ -15,7 +17,10 @@ read -p "Nexus username: " user
 read -p "Nexus password: " -s pass
 echo ''
 
-./gradlew   -Pversion=${version}                \
+./gradlew   -Prelease.useAutomaticVersion=true  \
+            -Prelease.releaseVersion=${version} \
+            -Prelease.newVersion=${nextVersion} \
+            -Pversion=${version}                \
             -PnexusUsername=${user}             \
             -PnexusPassword=${pass}             \
             -Ppush                              \
