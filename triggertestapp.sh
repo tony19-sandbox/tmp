@@ -1,7 +1,10 @@
 #!/bin/sh -e
-. gradle.properties
+echo SHELL=$SHELL
+pwd
+echo sourcing gradle.properties
+. ./gradle.properties
 
-token=$CIRCLE_TOKEN
+token=${CIRCLE_TOKEN?}
 username=tony19-sandbox
 project=logback-test-app
 
