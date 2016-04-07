@@ -16,6 +16,7 @@ plugins {
   id 'net.researchgate.release' version '2.3.4'
 }
 
+apply plugin: 'io.codearte.nexus-staging' // must be in root project
 apply from: 'gradle/readme.gradle'
 
 // expose FileUtils to imported Gradle scripts
