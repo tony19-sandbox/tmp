@@ -15,10 +15,7 @@ read -p "Nexus username: " user
 read -p "Nexus password: " -s pass
 echo ''
 
-./gradlew   -Prelease.useAutomaticVersion=true  \
-            -Prelease.releaseVersion=${version} \
-            -Prelease.newVersion=${nextVersion} \
-            -Pversion=${version}                \
+./gradlew   -Pversion=${version}                \
             -PnexusUsername=${user}             \
             -PnexusPassword=${pass}             \
             -Ppush                              \
