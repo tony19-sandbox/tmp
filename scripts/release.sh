@@ -13,8 +13,10 @@ echo "Starting release for logback-android ${version}..."
 # with "Please specify username" (no mention of Nexus).
 # Use our own prompt to remind the user where they're
 # logging into to.
-read -p "Nexus username: " user
-read -p "Nexus password: " -s pass
+user=${NEXUS_USERNAME}
+pass=${NEXUS_PASSWORD}
+[ -z "$user" ] && read -p "Nexus username: " user
+[ -z "$pass" ] && read -p "Nexus password: " -s pass
 echo ''
 
 ./gradlew   -Prelease.useAutomaticVersion=true  \
@@ -29,7 +31,6 @@ echo ''
             release                             \
             uploadArchives                      \
             uberjar
-#            uploadDocs                          \
 
 # FIXME: In test repo, this can't checkout 'gh-pages' -- no error provided
 #./gradlew   uploadDocs
