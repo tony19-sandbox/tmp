@@ -1,0 +1,17 @@
+if (!rootProject.hasProperty('analysis')) {
+  return
+}
+
+apply plugin: 'findbugs'
+apply plugin: 'pmd'
+apply plugin: 'jacoco'
+
+findbugs {
+  effort = 'max'
+  reportLevel = 'low'
+  ignoreFailures = true
+}
+
+pmd {
+  ignoreFailures = true
+}
