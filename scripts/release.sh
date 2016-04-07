@@ -1,17 +1,32 @@
-#!/bin/sh -e
+#!/usr/bin/env bash -e
 
 . gradle.properties
-version=${baseVersion}-${buildVersion}
 
-echo "Starting release process for logback-android ${version}..."
+nextVersion=${version}
+version=${version%*-SNAPSHOT}
 
-./gradlew -Pversion=${version}  \
-            -Ppush              \
-            clean               \
-            readme              \
-            release             \
-            uploadArchives      \
-            uploadDocs          \
+echo "Starting release for logback-android ${version}..."
+
+# gradle-release-plugin prompts for your Nexus credentials
+# with "Please specify username" (no mention of Nexus).
+# Use our own prompt to remind the user where they're
+# logging into to.
+read -p "Nexus username: " user
+read -p "Nexus password: " -s pass
+echo ''
+
+./gradlew   -Prelease.useAutomaticVersion=true  \
+            -Prelease.releaseVersion=${version} \
+            -Prelease.newVersion=${nextVersion} \
+            -Pversion=${version}                \
+            -PnexusUsername=${user}             \
+            -PnexusPassword=${pass}             \
+            -Ppush                              \
+            clean                               \
+            readme                              \
+            release                             \
+            uploadArchives                      \
+            uploadDocs                          \
             uberjar
 
 hub release edit -d -m '' ${version} -a build/logback-android-${version}.jar
