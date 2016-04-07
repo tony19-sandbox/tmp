@@ -1,11 +1,15 @@
 language: java
 
+env:
+  global:
+    secure: IottYvK8vM/d7G9qvQFAnU/0eOk6K8G3Se7IzLfukCu9HKyxH3yTijJOQKfJwN+oIsH3IjoIV7DIwFGfeI2ldt3y79NTy1AuOXszgE2mA7ZFHX27QPkBSha0EkqlKsqCmfsKgaaR1YXNf0ruygtT1oaSQrBObSjpjBzNaEpoQkG1kbnKpx9SixWqvx35VoX93Hd/izKahgzV5zczFKiTfAZWDG/32AA20c5XaYRkcqNp4qe2fav9pWuPkRz9/PmhHhYsyxMORAnTp/IC+JGM/dTnmIW50VD5fnpAQHX3VZ3csA68rB4KtoqXrflOQR5NualVy3JV2NU3Tz/Bu6RHniq+CB0sWxZxJjbAIOjygpnW6Oxj0gDls7zSCk/aFuZwoNJ869+aHcNBvcRPIUZoMbQXA1lQ6WblK2jqRMiDo23owHflPxZe+vrmgNDvA3zDNcDp73uxJKM/LJmkY2JxW0lO04Ez5BPcwTS23HX3ZRTg62Sju4+XUIAV+S5wB0CCUCXmf9HHBMhZF7iuuNdN8yHxstcpEtzcsxV3JFdv0lHA2iwZPiSmIYDxxtcOY8OOlvUTtNJAW0SdKopplb/Tuozd2EUIiN9jGeVELT40+YeSvmFFA28TzdqcnsRmSqdP+lIVYvmqBb+XqTbA1nYILQgzCpHjZCwOQxOjEJGYXlY=
+
 after_success:
   - >
     curl -X POST
       -H "Content-Type: application/json"
       -H "Travis-API-Version: 3"
       -H "Accept: application/json"
-      -H "Authorization: token $TRAVIS_TOKEN"
+      -H "Authorization: token $TOKEN"
       -d '{"request": {"branch": "master"}}'
       'https://api.travis-ci.org/repo/tony19-sandbox%2Flogback-android-test-app/requests'
