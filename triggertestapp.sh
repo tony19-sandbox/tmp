@@ -1,12 +1,14 @@
 #!/bin/sh -e
+. gradle.properties
 
 token=$CIRCLE_TOKEN
 username=tony19-sandbox
 project=logback-test-app
 
 curl -X POST  --header "Content-Type: application/json" -d '{
-    "revision": "$CIRCLE_SHA1",
     "build_parameters": {
+      "LOGBACK_ANDROID_VERSION": "$logbackAndroidVersion",
+      "SLF4J_VERSION": "$slf4jVersion",
       "CIRCLE_PROJECT_USERNAME": "$CIRCLE_PROJECT_USERNAME",
       "CIRCLE_PROJECT_REPONAME": "$CIRCLE_PROJECT_REPONAME",
       "CIRCLE_BRANCH": "$CIRCLE_BRANCH",
