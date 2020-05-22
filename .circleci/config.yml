@@ -77,7 +77,10 @@ jobs:
           name: Copy logback-android to app libs
           command: mkdir -p logback-test-app/app/libs && cp logback-android/build/outputs/aar/logback-android-release.aar logback-test-app/app/libs/.
       - run:
-          name: Check emulator list
+          name: Create AVD
+          command: avdmanager create avd -n android-<< parameters.sdk >> -k system-images;android-<< parameters.sdk >>;google_apis;x86
+      - run:
+          name: List emulators
           command: emulator -list-avds
 #      - run:
 #          name: Test app
@@ -99,4 +102,4 @@ workflows:
             - build
           matrix:
             parameters:
-              sdk: ['23', '24', '25', '26', '27', '28', '29']
+              sdk: ['23'] #, '24', '25', '26', '27', '28', '29']
