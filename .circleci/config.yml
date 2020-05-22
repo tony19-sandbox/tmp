@@ -21,7 +21,7 @@ jobs:
 #            - ~/.gradle
 #          key: jars-{{ checksum "build.gradle" }}-{{ checksum  "logback-android/build.gradle" }}
       - run:
-          name: Assemble outputs
+          name: Build
           command: ./gradlew assembleDebug assembleRelease --parallel
       - persist_to_workspace:
           root: .
@@ -51,7 +51,7 @@ jobs:
       - attach_workspace:
           at: ~/code
       - run:
-          name: Run Tests
+          name: Test
           command: ./gradlew test --parallel
       - store_artifacts:
           path: logback-android/build/reports
