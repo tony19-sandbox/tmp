@@ -236,7 +236,9 @@ public class SQLiteAppender extends UnsynchronizedAppenderBase<ILoggingEvent> {
    */
   @Override
   protected void finalize() throws Throwable {
-    this.db.close();
+    if (this.db != null) {
+      this.db.close();
+    }
   }
 
   /*
@@ -245,7 +247,9 @@ public class SQLiteAppender extends UnsynchronizedAppenderBase<ILoggingEvent> {
    */
   @Override
   public void stop() {
-    this.db.close();
+    if (this.db != null) {
+      this.db.close();
+    }
     this.lastCleanupTime = 0;
   }
 
