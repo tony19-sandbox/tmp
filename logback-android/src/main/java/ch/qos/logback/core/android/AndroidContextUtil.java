@@ -29,6 +29,7 @@ import java.util.Properties;
 
 import ch.qos.logback.classic.LoggerContext;
 import ch.qos.logback.core.CoreConstants;
+import ch.qos.logback.core.util.EnvUtil;
 
 /**
  * This class provides utility methods to get common directory paths and
@@ -92,6 +93,7 @@ public class AndroidContextUtil {
    * or {@code null} if not mounted.
    */
   public String getMountedExternalStorageDirectoryPath() {
+    if (!EnvUtil.isAndroidOS()) return null;
     String path = null;
     String state = Environment.getExternalStorageState();
     if (state.equals(Environment.MEDIA_MOUNTED) ||
@@ -118,6 +120,7 @@ public class AndroidContextUtil {
     if (Build.VERSION.SDK_INT >= 29) {
       return getExternalFilesDirectoryPath();
     } else {
+      if (!EnvUtil.isAndroidOS()) return null;
       return Environment.getExternalStorageDirectory().getAbsolutePath();
     }
   }
