@@ -77,8 +77,11 @@ jobs:
           name: Copy logback-android to app libs
           command: mkdir -p logback-test-app/app/libs && cp logback-android/build/outputs/aar/logback-android-release.aar logback-test-app/app/libs/.
       - run:
-          name: Test app
-          command: cd logback-test-app && ./gradlew test connectedCheck
+          name: Check emulator list
+          command: emulator -list-avds
+#      - run:
+#          name: Test app
+#          command: cd logback-test-app && ./gradlew test connectedCheck
 
 workflows:
   version: 2
